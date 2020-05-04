@@ -4,14 +4,19 @@
         <h1>GEEK</h1>
         <h2>エンジニアのためのSNS</h2>
     </div>
-    <div class="top-invitation"></div>
+    <div class="top-invitation">
+      <BaseButton buttonClass="-fill-green top">メールではじめる</BaseButton>
+    </div>
   </div>
 </template>
 
 <script>
+import BaseButton from '@/components/BaseButton'
 export default {
   name: 'Top',
-  components: {},
+  components: {
+    BaseButton
+  },
 };
 </script>
 
