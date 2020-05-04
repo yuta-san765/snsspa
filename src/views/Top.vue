@@ -1,21 +1,26 @@
 <template>
   <div class="top">
     <div class="top-image">
-        <h1>GEEK</h1>
-        <h2>エンジニアのためのSNS</h2>
+      <h1>GEEK</h1>
+      <h2>エンジニアのためのSNS</h2>
     </div>
     <div class="top-invitation">
       <BaseButton buttonClass="-fill-green top">メールではじめる</BaseButton>
+      <p>すでにアカウントをお持ちですか？<span class="show-login">ログイン</span></p>
+      <p>
+        <span>利用規約</span
+        >と<span>プライバシーポリシー</span>に同意したことになります。
+      </p>
     </div>
   </div>
 </template>
 
 <script>
-import BaseButton from '@/components/BaseButton'
+import BaseButton from '@/components/BaseButton';
 export default {
   name: 'Top',
   components: {
-    BaseButton
+    BaseButton,
   },
 };
 </script>
@@ -42,5 +47,20 @@ export default {
     font-weight: normal;
     margin: 0 auto;
   }
+}
+.top-invitation {
+  p {
+    margin: 0;
+    font-size: 12px;
+  }
+  p + p {
+    margin-top: 9px;
+  }
+  span {
+    font-weight: bold;
+  }
+}
+.show-login {
+  margin-left: 10px;
 }
 </style>

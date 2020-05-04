@@ -71,8 +71,9 @@ export default {
 .button.top {
   width: 335px;
   border-radius: 25px;
+  margin: 20px;
   justify-content: center;
-  font-size: 16px;
+  font-size: 16px
 }
 .button.-size-small {
   height: 32px;
