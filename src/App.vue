@@ -1,37 +1,31 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
 <script>
-import 'normalize.css'
-export default {
-  
-}
-</script>>
+import 'normalize.css';
+export default {};
+</script>
+
 <style lang="scss">
+$color-action: #34aa22;
+$text-light: #fff;
+$text-dark: #000;
+$color-border: #707070;
+html {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans','hiragino kaku gothic pro' ,Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: black;
+  height: 100%;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
