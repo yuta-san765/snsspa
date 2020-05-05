@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <header class="header">
       <div v-if="left" class="header__left">
         <font-awesome-icon
           class="icon icon-left"
@@ -14,7 +14,7 @@
       <div v-if="right" class="header__right">
         <font-awesome-icon class="icon icon-pen" icon="pen"></font-awesome-icon>
       </div>
-    </div>
+    </header>
 </template>
 
 <script>
@@ -34,6 +34,9 @@ export default {
 
 <style lang="scss">
 .header {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
   height: 80px;
   background-color: #212121;
   display: grid;
@@ -64,6 +67,7 @@ export default {
 }
 .icon {
   color: #34aa22;
+  cursor: pointer;
 }
 .icon-left {
   font-size: 28px;
