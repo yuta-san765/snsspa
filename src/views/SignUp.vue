@@ -17,7 +17,7 @@
     <div class="sign-up-form">
       <form>
         <label for="upload-picture" class="input-label"
-          >プロフィール写真(API無し)</label
+          >プロフィール写真(必須ではありません)</label
         >
         <input id="upload-picture" class="upload-picture" type="file" />
         <label for="upload-picture" class="bg-camera">
@@ -27,6 +27,10 @@
           ></font-awesome-icon>
         </label>
         <BaseInput v-model="user.name" label="名前(必須)" placeholder="ぎーく太郎" type="text"></BaseInput>
+        <BaseInput v-model="user.email" label="メールアドレス" placeholder="geek@sns.com" type="email"></BaseInput>
+        <BaseInput v-model="user.password" label="パスワード" placeholder="8文字以上" type="password"></BaseInput>
+        <BaseInput v-model="user.password_confirmation" label="パスワード(確認)" placeholder="8文字以上" type="password"></BaseInput>
+        <BaseButton buttonClass="-fill-green sign-up">登録</BaseButton>
       </form>
     </div>
   </div>
@@ -34,16 +38,21 @@
 
 <script>
 import BaseInput from '@/components/BaseInput'
+import BaseButton from '@/components/BaseButton'
 export default {
   data() {
     return {
       user: {
-        name: ''
+        name: '',
+        email: '',
+        password: '',
+        password_confirmation: ''
       }
     }
   },
   components: {
-    BaseInput
+    BaseInput,
+    BaseButton
   }
 };
 </script>

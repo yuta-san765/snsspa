@@ -76,6 +76,14 @@ export default {
   justify-content: center;
   font-size: 16px
 }
+.button.sign-up {
+  width: 100%;
+  height: 47px;
+  border-radius: 25px;
+  margin-top: 16px;
+  justify-content: center;
+  font-weight: 600;
+}
 .button.-size-small {
   height: 32px;
 }
