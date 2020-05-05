@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Top from '../views/Top.vue'
 import SignUp from '../views/SignUp.vue'
 import SignIn from '../views/SignIn.vue'
+import Timeline from '../views/Timeline.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ Vue.use(VueRouter)
     path: '/sign-up',
     name: 'sign-up',
     component: SignUp
+  },
+  {
+    path: '/timeline',
+    name: 'timeline',
+    component: Timeline
   }
 ]
 

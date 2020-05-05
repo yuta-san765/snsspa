@@ -62,7 +62,7 @@ export default {
 .icon-camera {
   color: white;
   opacity: 0.6;
-  font-size: 24px;
+  font-size: 26px;
   position: absolute;
   left: 50%;
   top: 48%;
