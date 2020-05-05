@@ -6,7 +6,7 @@
       </div>
       <div class="post__content">
         <div class="post__time">
-          <time :datetime="timestamp">3min.</time>
+          <time>3min.</time>
         </div>
         <h4 class="post__user-name">名前</h4>
         <p class="post__description">

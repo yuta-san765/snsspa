@@ -5,6 +5,7 @@ import SignUp from '../views/SignUp.vue'
 import SignIn from '../views/SignIn.vue'
 import BaseLayout from '../views/BaseLayout.vue'
 import Posts from '../views/Posts.vue'
+import MyPage from '../views/MyPage.vue'
 
 Vue.use(VueRouter)
 
@@ -27,14 +28,19 @@ Vue.use(VueRouter)
     component: SignUp
   },
   {
-    path: '/timeline',
+    path: '',
     // name: 'timeline',
     component: BaseLayout,
     children: [
       {
-        path: '',
+        path: 'posts',
         name: 'posts',
         component: Posts
+      },
+      {
+        path: 'my-page',
+        name: 'my-page',
+        component: MyPage
       }
     ]
   }

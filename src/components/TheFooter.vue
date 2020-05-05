@@ -1,15 +1,37 @@
 <template>
   <footer class="footer">
-    <font-awesome-icon icon="home" class="icon icon-home"></font-awesome-icon>
-    <font-awesome-icon icon="comment-dots" class="icon icon-comment"></font-awesome-icon>
-    <font-awesome-icon icon="user" class="icon icon-user"></font-awesome-icon>
+    <font-awesome-icon
+      @click="goToTimeline"
+      icon="home"
+      class="icon icon-home"
+    ></font-awesome-icon>
+    <font-awesome-icon
+      @click="goToChat"
+      icon="comment-dots"
+      class="icon icon-comment"
+    ></font-awesome-icon>
+    <font-awesome-icon
+      @click="goToUser"
+      icon="user"
+      class="icon icon-user"
+    ></font-awesome-icon>
   </footer>
 </template>
 
 <script>
 export default {
-
-}
+  methods: {
+    goToTimeline() {
+      this.$router.push({ name: 'posts' });
+    },
+    goToChat() {
+      this.$router.push({ name: 'chat' });
+    },
+    goToUser() {
+      this.$router.push({ name: 'my-page' });
+    },
+  },
+};
 </script>
 
 <style lang="scss">

@@ -11,16 +11,20 @@ import TheHeader from '@/components/TheHeader';
 import TheFooter from '@/components/TheFooter';
 export default {
   data() {
-    return {
-    };
+    return {};
   },
   components: {
     TheHeader,
     TheFooter,
   },
+  computed: {
+    viewTitle() {
+      if (this.$route.params.name === 'posts') {
+        return 'TIMELINE';
+      }
+    },
+  },
 };
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
