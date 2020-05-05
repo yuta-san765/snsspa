@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Top from '../views/Top.vue'
 import SignUp from '../views/SignUp.vue'
+import SignIn from '../views/SignIn.vue'
 
 Vue.use(VueRouter)
 
@@ -9,7 +10,14 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Top',
-    component: Top
+    component: Top,
+    children: [
+      {
+        path: 'sign-in',
+        name: 'sign-in',
+        component: SignIn
+      }
+    ]
   },
   {
     path: '/sign-up',

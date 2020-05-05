@@ -6,11 +6,14 @@
     </div>
     <div class="top-invitation">
       <BaseButton buttonClass="-fill-green top">メールではじめる</BaseButton>
-      <p>すでにアカウントをお持ちですか？<span class="show-login">ログイン</span></p>
+      <p>すでにアカウントをお持ちですか？<span @click="goToSignIn" class="show-sign-in">ログイン</span></p>
       <p>
         <span>利用規約</span
         >と<span>プライバシーポリシー</span>に同意したことになります。
       </p>
+    </div>
+    <div v-if="isSignInOpen" class="sign-in-bg" @click.self="close">
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -19,9 +22,26 @@
 import BaseButton from '@/components/BaseButton';
 export default {
   name: 'Top',
+  data() {
+    return {
+    }
+  },
   components: {
     BaseButton,
   },
+  computed: {
+    isSignInOpen() {
+      return this.$route.name === 'sign-in'
+    }
+  },
+  methods: {
+    goToSignIn() {
+      this.$router.push({name: 'sign-in'})
+    },
+    close() {
+      this.$router.push({name: 'Top'})
+    }
+  }
 };
 </script>
 
@@ -61,7 +81,20 @@ export default {
     font-weight: bold;
   }
 }
-.show-login {
+.show-sign-in {
   margin-left: 10px;
+  cursor: pointer;
+}
+.sign-in-bg {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #707070, $alpha: 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

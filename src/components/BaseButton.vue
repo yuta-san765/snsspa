@@ -33,6 +33,7 @@ export default {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   white-space: nowrap;
   transition: all 0.2s linear;
+  cursor: pointer;
 }
 .button:hover {
   -webkit-transform: scale(1.02);
@@ -79,6 +80,14 @@ export default {
 .button.sign-up {
   width: 100%;
   height: 47px;
+  border-radius: 25px;
+  margin-top: 16px;
+  justify-content: center;
+  font-weight: 600;
+}
+.button.sign-in {
+  width: 100%;
+  height: 38px;
   border-radius: 25px;
   margin-top: 16px;
   justify-content: center;
