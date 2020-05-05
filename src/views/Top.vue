@@ -5,7 +5,7 @@
       <h2>エンジニアのためのSNS</h2>
     </div>
     <div class="top-invitation">
-      <BaseButton buttonClass="-fill-green top">メールではじめる</BaseButton>
+      <BaseButton @click="goToSignUp" buttonClass="-fill-green top">メールではじめる</BaseButton>
       <p>すでにアカウントをお持ちですか？<span @click="goToSignIn" class="show-sign-in">ログイン</span></p>
       <p>
         <span>利用規約</span
@@ -37,6 +37,9 @@ export default {
   methods: {
     goToSignIn() {
       this.$router.push({name: 'sign-in'})
+    },
+    goToSignUp() {
+      this.$router.push({name: 'sign-up'})
     },
     close() {
       this.$router.push({name: 'Top'})

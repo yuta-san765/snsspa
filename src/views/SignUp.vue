@@ -1,19 +1,6 @@
 <template>
   <div class="sign-up">
-    <div class="header">
-      <div class="header__left">
-        <font-awesome-icon
-          class="icon icon-left"
-          icon="angle-left"
-        ></font-awesome-icon>
-      </div>
-      <div class="header__center">
-        <h3 class="header__title">ユーザー登録</h3>
-      </div>
-      <div class="header__right">
-        <font-awesome-icon class="icon icon-pen" icon="pen"></font-awesome-icon>
-      </div>
-    </div>
+    <TheHeader>ユーザー登録</TheHeader>
     <div class="sign-up-form">
       <form>
         <label for="upload-picture" class="input-label"
@@ -37,6 +24,7 @@
 </template>
 
 <script>
+import TheHeader from '@/components/TheHeader'
 import BaseInput from '@/components/BaseInput'
 import BaseButton from '@/components/BaseButton'
 export default {
@@ -51,6 +39,7 @@ export default {
     }
   },
   components: {
+    TheHeader,
     BaseInput,
     BaseButton
   }
@@ -58,49 +47,6 @@ export default {
 </script>
 
 <style lang="scss">
-.header {
-  height: 80px;
-  background-color: #212121;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  &__center {
-    display: flex;
-    align-items: flex-end;
-  }
-  &__title {
-    color: white;
-    font-size: 15px;
-    font-family: 'SF Pro Text';
-    font-weight: 400;
-    margin: 15px auto;
-  }
-  &__left {
-    display: flex;
-    align-items: flex-end;
-  }
-  &__right {
-    display: flex;
-    align-items: flex-end;
-    justify-content: right;
-  }
-}
-.icon {
-  color: #34aa22;
-}
-.icon-left {
-  font-size: 28px;
-  margin-left: 20px;
-  margin-bottom: 12px;
-}
-.icon-pen {
-  font-size: 20px;
-  margin-left: auto;
-  margin-right: 21px;
-  margin-bottom: 15px;
-}
-.sign-up-form {
-  padding: 80px 20px 0;
-}
 .upload-picture {
   display: none;
 }
