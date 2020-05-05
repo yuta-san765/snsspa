@@ -6,6 +6,7 @@ import SignIn from '../views/SignIn.vue'
 import BaseLayout from '../views/BaseLayout.vue'
 import Posts from '../views/Posts.vue'
 import MyPage from '../views/MyPage.vue'
+import Post from '../components/Post.vue'
 
 Vue.use(VueRouter)
 
@@ -40,7 +41,14 @@ Vue.use(VueRouter)
       {
         path: 'my-page',
         name: 'my-page',
-        component: MyPage
+        component: MyPage,
+        children: [
+          {
+            path: 'my-posts',
+            name: 'my-posts',
+            component: Post
+          }
+        ]
       }
     ]
   }

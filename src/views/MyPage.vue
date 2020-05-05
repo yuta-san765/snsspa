@@ -1,49 +1,57 @@
 <template>
   <div class="my-page">
     <div class="user-cover">
-      <img class="cover-image" src="@/assets/cover.png" alt="">
+      <img class="cover-image" src="@/assets/cover.png" alt="" />
     </div>
     <div class="user-container">
       <div class="user-info">
         <div class="user-info__picture">
-          <img class="user-picture" src="@/assets/demo.png" alt="">
+          <img class="user-picture" src="@/assets/demo.png" alt="" />
         </div>
         <div class="user-info__container">
           <h4 class="user-info__name">名前</h4>
         </div>
-          <div class="user-info__tab">
-            <div class="user-info__num">
-              <span class="span-num">2000</span>
-              <br>
-              <span class="span-word">投稿</span>
-            </div>
-            <div class="user-info__num">
-              <span class="span-num">2000</span>
-              <br>
-              <span class="span-word">フォロー</span>
-            </div>
-            <div class="user-info__num">
-              <span class="span-num">2000</span>
-              <br>
-              <span class="span-word">フォロワー</span>
-            </div>
-            <div class="icon-cog">
-              <font-awesome-icon class="icon" icon="cog"></font-awesome-icon>
-            </div>
+        <div class="user-info__tab">
+          <div @click="goToMyPosts" class="user-info__num">
+            <span class="span-num">2000</span>
+            <br />
+            <span class="span-word">投稿</span>
           </div>
+          <div @click="goToMyFollows" class="user-info__num">
+            <span class="span-num">2000</span>
+            <br />
+            <span class="span-word">フォロー</span>
+          </div>
+          <div @click="goToMyFollowers" class="user-info__num">
+            <span class="span-num">2000</span>
+            <br />
+            <span class="span-word">フォロワー</span>
+          </div>
+          <div class="icon-cog">
+            <font-awesome-icon class="icon" icon="cog"></font-awesome-icon>
+          </div>
+        </div>
       </div>
     </div>
-    <Post></Post>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Post from '@/components/Post.vue'
 export default {
-  components: {
-    Post
+  components: {},
+  methods: {
+    goToMyPosts() {
+      this.$router.push({name: 'my-posts'})
+    },
+    goToMyFollows() {
+      this.$router.push({name: 'my-follows'})
+    },
+    goToMyFollowers() {
+      this.$router.push({name: 'my-followers'})
+    }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -54,12 +62,12 @@ export default {
   width: 100%;
   height: 205px;
   object-fit: cover;
-  border-bottom: 1px solid #C9C9C9;
+  border-bottom: 1px solid #c9c9c9;
 }
 .user-container {
   padding: 23px 0 54px;
   margin: 0 20px;
-  border-bottom: 1px solid #57585A;
+  border-bottom: 1px solid #57585a;
 }
 .user-info {
   height: 60px;
@@ -84,6 +92,7 @@ export default {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   &__num {
+    cursor: pointer;
     text-align: center;
     font-weight: bold;
   }
