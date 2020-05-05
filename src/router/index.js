@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Top from '../views/Top.vue'
+import SignUp from '../views/SignUp.vue'
 
 Vue.use(VueRouter)
 
@@ -9,6 +10,11 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Top',
     component: Top
+  },
+  {
+    path: '/sign-up',
+    name: 'sign-up',
+    component: SignUp
   }
 ]
 

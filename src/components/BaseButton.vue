@@ -69,9 +69,10 @@ export default {
   color: white;
 }
 .button.top {
-  width: 335px;
+  max-width: 335px;
+  width: 100%;
   border-radius: 25px;
-  margin: 20px;
+  margin-bottom: 20px;
   justify-content: center;
   font-size: 16px
 }

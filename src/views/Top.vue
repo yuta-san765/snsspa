@@ -49,6 +49,7 @@ export default {
   }
 }
 .top-invitation {
+  padding: 20px;
   p {
     margin: 0;
     font-size: 12px;
