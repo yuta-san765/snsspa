@@ -9,6 +9,17 @@ const apiClient = axios.create({
   },
 });
 
+// いちいちheaderにtokenを入れるのが大変なので、withTokenのapiClientを用意すべきだった。→やった
+const apiClientWithToken = axios.create({
+  baseURL: `https://teachapi.herokuapp.com`,
+  withCredentials: false,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    Authorization: 'Bearer ' + 'token from vuex',
+  },
+});
+
 export default {
   signUp(sign_up_user_params) {
     return apiClient.post('/sign_up', {
@@ -24,103 +35,59 @@ export default {
     return apiClient.get(`/posts?page=${pageNum}`);
   },
   editUser(user_params, id) {
-    return apiClient.put(
-      `/users/${id}`,
-      { user_params: user_params },
-      {
-        headers: {
-          Authorization: 'Bearer ' + 'token from vuex',
-        },
-      }
-    );
+    return apiClientWithToken.put(`/users/${id}`, { user_params: user_params });
   },
   deleteUser(id) {
-    return apiClient.delete(`/users/${id}`, {
-      headers: {
-        Authorization: 'Bearer ' + 'token from vuex',
-      },
-    });
+    return apiClientWithToken.delete(`/users/${id}`);
   },
   showUsersTimeline(id, pageNum) {
-    return apiClient.get(`/users/${id}/timeline?page=${pageNum}`, {
-      headers: {
-        Authorization: 'Bearer ' + 'token from vuex',
-      },
-    });
+    return apiClientWithToken.get(`/users/${id}/timeline?page=${pageNum}`);
   },
   post(text) {
-    return apiClient.post(
-      'posts',
-      { post_params: { text: text } },
-      {
-        headers: {
-          Authorization: 'Bearer ' + 'token from vuex',
-        },
-      }
-    );
+    return apiClientWithToken.post('posts', { post_params: { text: text } });
   },
   editPost(id, text) {
-    return apiClient.put(
-      `posts/${id}`,
-      { post_params: { text: text } },
-      {
-        headers: {
-          Authorization: 'Bearer ' + 'token from vuex',
-        },
-      }
-    );
+    return apiClientWithToken.put(`posts/${id}`, {
+      post_params: { text: text },
+    });
   },
   deletePost(id) {
-    return apiClient.delete(`/posts/${id}`)
+    return apiClientWithToken.delete(`/posts/${id}`);
   },
   follow(id) {
-    return apiClient.post(`/users/${id}/follow`)
+    return apiClient.post(`/users/${id}/follow`);
   },
   unFollow(id) {
-    return apiClient.delete(`/users/${id}/follow`)
+    return apiClient.delete(`/users/${id}/follow`);
   },
   showFollowings(id) {
-    return apiClient.get(`/users/${id}/followings`)
+    return apiClient.get(`/users/${id}/followings`);
   },
   showFollowers(id) {
-    return apiClient.get(`/users/${id}/followers`)
+    return apiClient.get(`/users/${id}/followers`);
   },
   showChatrooms(pageNum) {
-    return apiClient.get(`/chatrooms?page=${pageNum}`, {headers: {
-      Authorization: 'Bearer ' + 'token from vuex'
-    }})
+    return apiClientWithToken.get(`/chatrooms?page=${pageNum}`);
   },
   joinChatroom(id) {
-    return apiClient.post(`/chatrooms/${id}/join`, {headers: {
-      Authorization: 'Bearer ' + 'token from vuex'
-    }})
+    return apiClientWithToken.post(`/chatrooms/${id}/join`);
   },
   createChatroom(name) {
-    return apiClient.post('/chatrooms', {chatroom_params: {
-      name: name
-    }},
-    {headers: {
-      Authorization: 'Bearer ' + 'token from vuex'
-    }})
+    return apiClientWithToken.post('/chatrooms', {
+      chatroom_params: {
+        name: name,
+      },
+    });
   },
   showChatMessages(id) {
     //ここのクエリパラメータの指示が不明
-    return apiClient.get(`/chatrooms/${id}/messages`, {
-      headers: {
-        Authorization: 'Bearer ' + 'token from vuex'
-      }
-    })
+    return apiClientWithToken.get(`/chatrooms/${id}/messages`);
   },
   sendChatMessage(id, text) {
-    return apiClient.post(`/chatrooms/${id}/messages`,  {
+    return apiClientWithToken.post(`/chatrooms/${id}/messages`, {
       message_params: {
-        text: text
-      }
-    },
-    {
-      headers: {
-        Authorization: 'Bearer ' + 'token from vuex'
-      }
-    })
-  }
+        text: text,
+      },
+    });
+  },
 };
