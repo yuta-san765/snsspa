@@ -13,11 +13,11 @@
             class="icon-camera"
           ></font-awesome-icon>
         </label>
-        <BaseInput v-model="user.name" label="名前(必須)" placeholder="ぎーく太郎" type="text"></BaseInput>
-        <BaseInput v-model="user.email" label="メールアドレス" placeholder="geek@sns.com" type="email"></BaseInput>
-        <BaseInput v-model="user.password" label="パスワード" placeholder="8文字以上" type="password"></BaseInput>
-        <BaseInput v-model="user.password_confirmation" label="パスワード(確認)" placeholder="8文字以上" type="password"></BaseInput>
-        <BaseButton buttonClass="-fill-green sign-up">登録</BaseButton>
+        <BaseInput v-model="sign_up_user_params.name" label="名前(必須)" placeholder="ぎーく太郎" type="text"></BaseInput>
+        <BaseInput v-model="sign_up_user_params.email" label="メールアドレス" placeholder="geek@sns.com" type="email"></BaseInput>
+        <BaseInput v-model="sign_up_user_params.password" label="パスワード" placeholder="8文字以上" type="password"></BaseInput>
+        <BaseInput v-model="sign_up_user_params.password_confirmation" label="パスワード(確認)" placeholder="8文字以上" type="password"></BaseInput>
+        <BaseButton @click.prevent="register" buttonClass="-fill-green sign-up">登録</BaseButton>
       </form>
     </div>
   </div>
@@ -30,8 +30,9 @@ import BaseButton from '@/components/BaseButton'
 export default {
   data() {
     return {
-      user: {
+      sign_up_user_params: {
         name: '',
+        bio: 'default',
         email: '',
         password: '',
         password_confirmation: ''
@@ -42,6 +43,11 @@ export default {
     TheHeader,
     BaseInput,
     BaseButton
+  },
+  methods: {
+    register() {
+      this.$store.dispatch('register', this.sign_up_user_params).then(this.$router.push({name: 'posts'}))
+    }
   }
 };
 </script>
