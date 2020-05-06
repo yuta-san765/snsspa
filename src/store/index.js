@@ -12,6 +12,10 @@ export default new Vuex.Store({
     SET_USER_DATA (state, data) {
       state.user = data
       localStorage.setItem('user', JSON.stringify(data))
+    },
+    LOGOUT(state) {
+      state.user = null
+      localStorage.removeItem('user')
     }
   },
   actions: {
@@ -20,6 +24,9 @@ export default new Vuex.Store({
         console.log(data)
         commit('SET_USER_DATA', data)
       })
+    },
+    logout({commit}) {
+      commit('LOGOUT')
     }
   },
   modules: {
