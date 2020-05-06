@@ -25,7 +25,7 @@ export default {
       this.$router.push({ name: 'posts' });
     },
     goToChat() {
-      this.$router.push({ name: 'chat' });
+      this.$router.push({ name: 'chatrooms' });
     },
     goToUser() {
       this.$router.push({ name: 'my-page' });

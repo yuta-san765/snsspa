@@ -7,6 +7,7 @@ import BaseLayout from '../views/BaseLayout.vue'
 import Posts from '../views/Posts.vue'
 import MyPage from '../views/MyPage.vue'
 import Post from '../components/Post.vue'
+import Chatrooms from '../views/Chatrooms.vue'
 
 Vue.use(VueRouter)
 
@@ -39,16 +40,14 @@ Vue.use(VueRouter)
         component: Posts
       },
       {
+        path: 'chatrooms',
+        name: 'chatrooms',
+        component: Chatrooms
+      },
+      {
         path: 'my-page',
         name: 'my-page',
         component: MyPage,
-        children: [
-          {
-            path: 'my-posts',
-            name: 'my-posts',
-            component: Post
-          }
-        ]
       }
     ]
   }
