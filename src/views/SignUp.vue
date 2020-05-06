@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import {required, email, minLength, sameAs, alphaNum} from 'vuelidate/lib/validators'
 import TheHeader from '@/components/TheHeader'
 import BaseInput from '@/components/BaseInput'
 import BaseButton from '@/components/BaseButton'
@@ -36,6 +37,29 @@ export default {
         email: '',
         password: '',
         password_confirmation: ''
+      }
+    }
+  },
+  validations: {
+    sign_up_user_params: {
+      name: {
+        required,
+      },
+      email: {
+        required,
+        email,
+      },
+      password: {
+        required,
+        alphaNum,
+        minLength: minLength(8)
+      },
+      password_confirmation: {
+        required,
+        alphaNum,
+        sameAsPassword: sameAs(function() {
+          return this.sign_up_user_params.password
+        })
       }
     }
   },

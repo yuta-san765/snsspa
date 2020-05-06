@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import {required, email, minLength, alphaNum} from 'vuelidate/lib/validators'
 import Popup from '@/components/Popup'
 import BaseInput from '@/components/BaseInput';
 import BaseButton from '@/components/BaseButton';
@@ -33,6 +34,19 @@ export default {
         password: '',
       },
     };
+  },
+  validations: {
+    user: {
+      email: {
+        required,
+        email
+      },
+      password: {
+        required,
+        alphaNum,
+        minLength: minLength(8)
+      }
+    }
   },
   components: {
     Popup,
