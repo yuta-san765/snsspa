@@ -1,6 +1,8 @@
 import axios from 'axios';
+// import store from '../store'
+// 外部jsファイルからstoreを参照するのは非推奨らしい？
 
-const apiClient = axios.create({
+export const apiClient = axios.create({
   baseURL: `https://teachapi.herokuapp.com`,
   withCredentials: false,
   headers: {
@@ -10,17 +12,16 @@ const apiClient = axios.create({
 });
 
 // いちいちheaderにtokenを入れるのが大変なので、withTokenのapiClientを用意すべきだった。→やった
-const apiClientWithToken = axios.create({
+export const apiClientWithToken = axios.create({
   baseURL: `https://teachapi.herokuapp.com`,
   withCredentials: false,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    Authorization: 'Bearer ' + 'token from vuex',
-  },
+  }
 });
 
-export default {
+export const EventService = {
   signUp(sign_up_user_params) {
     return apiClient.post('/sign_up', {
       sign_up_user_params: sign_up_user_params,
@@ -32,7 +33,7 @@ export default {
     });
   },
   getPosts(pageNum) {
-    return apiClient.get(`/posts?page=${pageNum}`);
+    return apiClientWithToken.get(`/posts/?page=${pageNum}`);
   },
   editUser(user_params, id) {
     return apiClientWithToken.put(`/users/${id}`, { user_params: user_params });

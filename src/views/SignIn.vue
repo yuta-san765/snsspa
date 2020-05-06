@@ -21,7 +21,7 @@
           type="email"
           placeholder="8文字以上"
         ></BaseInput>
-        <BaseButton buttonClass="-fill-green sign-in">ログイン</BaseButton>
+        <BaseButton @click.prevent="signIn" buttonClass="-fill-green sign-in">ログイン</BaseButton>
       </form>
       <p class="pass-retreive">パスワードを忘れた場合は<span>こちら</span></p>
     </div>
@@ -48,6 +48,9 @@ export default {
     close() {
       this.$router.push({ name: 'Top' });
     },
+    signIn() {
+      this.$store.dispatch('signIn', this.user).then(this.$router.push({name: 'posts'}))
+    }
   },
 };
 </script>
