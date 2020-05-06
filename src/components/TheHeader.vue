@@ -1,20 +1,21 @@
 <template>
   <header class="header">
-      <div v-if="left" class="header__left">
-        <font-awesome-icon
-          class="icon icon-left"
-          icon="angle-left"
-        ></font-awesome-icon>
-      </div>
-      <div class="header__center">
-        <h3 class="header__title">
-          <slot></slot>
-        </h3>
-      </div>
-      <div v-if="right" class="header__right">
-        <font-awesome-icon class="icon icon-pen" icon="pen"></font-awesome-icon>
-      </div>
-    </header>
+    <div v-if="left" class="header__left">
+      <font-awesome-icon
+        @click="back"
+        class="icon icon-left"
+        icon="angle-left"
+      ></font-awesome-icon>
+    </div>
+    <div class="header__center">
+      <h3 class="header__title">
+        <slot></slot>
+      </h3>
+    </div>
+    <div v-if="right" class="header__right">
+      <font-awesome-icon @click class="icon icon-pen" icon="pen"></font-awesome-icon>
+    </div>
+  </header>
 </template>
 
 <script>
@@ -22,16 +23,20 @@ export default {
   props: {
     left: {
       type: Boolean,
-      default: false
+      default: false,
     },
     right: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  computed: {
-  }
-}
+  computed: {},
+  methods: {
+    back() {
+      this.$router.go(-1);
+    },
+  },
+};
 </script>
 
 <style lang="scss">

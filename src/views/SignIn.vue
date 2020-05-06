@@ -1,13 +1,6 @@
 <template>
   <div class="sign-in">
-    <div class="popup">
-      <div class="icon-wrapper">
-        <font-awesome-icon
-          @click="close"
-          icon="times"
-          class="icon-times"
-        ></font-awesome-icon>
-      </div>
+    <Popup @close="close">
       <form>
         <BaseInput
           v-model="user.email"
@@ -24,11 +17,12 @@
         <BaseButton @click.prevent="signIn" buttonClass="-fill-green sign-in">ログイン</BaseButton>
       </form>
       <p class="pass-retreive">パスワードを忘れた場合は<span>こちら</span></p>
-    </div>
+    </Popup>
   </div>
 </template>
 
 <script>
+import Popup from '@/components/Popup'
 import BaseInput from '@/components/BaseInput';
 import BaseButton from '@/components/BaseButton';
 export default {
@@ -41,6 +35,7 @@ export default {
     };
   },
   components: {
+    Popup,
     BaseInput,
     BaseButton,
   },
@@ -63,24 +58,5 @@ export default {
     text-decoration: underline;
     margin-left: 10px;
   }
-}
-.popup {
-  padding: 20px 20px 5px;
-  background-color: white;
-  border-radius: 15px;
-  border: 1px solid #707070;
-  form {
-    text-align: left;
-  }
-}
-.icon-wrapper {
-  display: flex;
-  margin: 5px auto 17px 10px;
-}
-.icon-times {
-  cursor: pointer;
-  display: inline-block;
-  font-size: 20px;
-  color: #707070;
 }
 </style>
