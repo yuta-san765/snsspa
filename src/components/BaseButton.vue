@@ -93,6 +93,15 @@ export default {
   justify-content: center;
   font-weight: 600;
 }
+.button.popup {
+  width: 100%;
+  height: 38px;
+  border-radius: 25px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  justify-content: center;
+  font-weight: 600;
+}
 .button.-size-small {
   height: 32px;
 }

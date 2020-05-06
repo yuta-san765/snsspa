@@ -80,5 +80,7 @@ export default {
   font-weight: 600;
   margin-bottom: 6px;
 }
-
+.sign-up-form {
+  padding: 160px 20px 0;
+}
 </style>
